@@ -32,7 +32,7 @@ def light_on_led_pattern(pattern, duration):
     time.sleep(duration)
 
 def display_original_pattern(pattern):
-    print(f"Á¤´äÀº {pattern} ÀÔ´Ï´Ù.")
+    print(f"ì •ë‹µì€ {pattern} ì…ë‹ˆë‹¤.")
 
 def compare_patterns(player_pattern, original_pattern):
     return player_pattern == original_pattern
@@ -52,25 +52,25 @@ def wrong_led_pattern():
         time.sleep(0.5)
 
 def play_game():
-    print("¾È³çÇÏ¼¼¿ä LED ÆĞÅÏ ¾Ï±â Å×½ºÆ®ÀÔ´Ï´Ù.")
-    input("¾Æ¹« Å°³ª ´©¸£¸é ½ÃÀÛÇÕ´Ï´Ù.")
+    print("ì•ˆë…•í•˜ì„¸ìš” LED íŒ¨í„´ ì•”ê¸° í…ŒìŠ¤íŠ¸ì…ë‹ˆë‹¤.")
+    input("ì•„ë¬´ í‚¤ë‚˜ ëˆ„ë¥´ë©´ ì‹œì‘í•©ë‹ˆë‹¤.")
     
     original_pattern = random_led_pattern()
     
-    print("ÆĞÅÏÀ» ±â¾ïÇÏ¼¼¿ä!")
+    print("íŒ¨í„´ì„ ê¸°ì–µí•˜ì„¸ìš”!")
     light_on_led_pattern(original_pattern, 6)
     
-    player_pattern = input("ÆĞÅÏÀ» ÀÔ·ÂÇÏ¼¼¿ä (¿¹: red green blue red blue green): ").split()
+    player_pattern = input("íŒ¨í„´ì„ ì…ë ¥í•˜ì„¸ìš” (ì˜ˆ: red green blue red blue green): ").split()
     
     if compare_patterns(player_pattern, original_pattern):
-        print("Á¤´äÀÔ´Ï´Ù!")
+        print("ì •ë‹µì…ë‹ˆë‹¤!")
         correct_led_pattern()
     else:
-        print("¿À´äÀÔ´Ï´Ù.")
+        print("ì˜¤ë‹µì…ë‹ˆë‹¤.")
         wrong_led_pattern()
         display_original_pattern(original_pattern)
 
     GPIO.cleanup()
 
-# °ÔÀÓ ÇÃ·¹ÀÌ
+# ê²Œì„ í”Œë ˆì´
 play_game()
